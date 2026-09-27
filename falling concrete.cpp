@@ -1,29 +1,28 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
- 
-int main() 
-{
-  long long t;
-  cin>> t;
-  while(t--){
-    long long n;
-    cin>>n;
-    vector<long long> v(n);
-    long long sum=0
-    for(long long i=0;i<n;i++){
-        cin>> v[i];
-        sum+=v[i];
+int main(){
+    int t;
+    cin>> t;
+    while(t--){
+        int n;
+        cin>> n;
+        vector<int> v(n);
+        vector<int> diff(n);
+        
+        for(int i=0;i<n;i++){
+            cin>> v[i];
+            diff[i]=v[i]-i;
+        }
+        
+        sort(diff.begin(),diff.end());
+        int len=1,maxi=1;
+        for(int i=0;i<n-1;i++){
+            if(diff[i]==diff[i+1]-1)len++;
+            else if(diff[i]==diff[i+1])continue;
+            else len=1;
+            maxi=max(maxi,len);
+        }
+        cout<< maxi<< endl;
     }
-    long long avg=sum/n;
-    vector<long long> v1(n,0);
-
-    for(long long i=0;i<n;i++){
-        long long curr=v[i];
-        if(curr>avg)
-    }
-
-    
-
-  }
     return 0;
 }
